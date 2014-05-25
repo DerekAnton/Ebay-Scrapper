@@ -3,18 +3,23 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JButton;
+import javax.swing.JTextField;
 
 
 public class Main 
 {
-	
+	// Textfields //
+	public static JTextField textfield = new JTextField("Enter your desired query...");
+			
 	public static void main(String[] args)
 	{
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -40,7 +45,8 @@ public class Main
 		// Button Variables //
 		JButton searchButton = new JButton("Search");
 		
-		// ActionListener //
+		
+		// ActionListeners //
 		ActionListener actionListener = new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent actionEvent)
@@ -48,11 +54,19 @@ public class Main
 		        System.out.println("Your item was searched."); // this is where we will do searching logic. //
 		    }
 		};
+		textfield.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
+	        {
+				textfield.setText("");
+	        }
+	    });
 		
 		// Frame Actions //
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(searchButton);
 		frame.setJMenuBar(menuBar);
+		frame.add(textfield);
 		// ALL FRAME ADDS MUST BE DONE ABOVE THIS //
 		frame.getContentPane().add(label, BorderLayout.CENTER);		
 		frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
@@ -71,7 +85,11 @@ public class Main
 		searchButton.addActionListener(actionListener);
 		searchButton.setSize(100, 25);
 		searchButton.setLocation(0, 50);
-			
+		
+		// TextField Actions //
+		textfield.setSize(300, 25);
+		textfield.setLocation(0, 25);
+		
 		// End Frame Work -> Pack and visible are final actions //
 		frame.pack();
 		frame.setSize(500, 250);
