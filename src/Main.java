@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,6 +13,8 @@ public class Main
 {
 	public static void main(String[] args)
 	{
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		
 		//  Frame Variables //
 		JFrame frame = new JFrame("Ebay Snooper");
 		JLabel label = new JLabel();
@@ -28,7 +32,7 @@ public class Main
 		JMenuItem optionsItem1 = new JMenuItem("File options item");
 		JMenuItem helpItem1 = new JMenuItem("God can only help you now...");
 		
-		
+		frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
 		
 		
 		
@@ -50,6 +54,7 @@ public class Main
 		
 		// End Frame Work -> Pack and visible are final actions //
 		frame.pack();
+		frame.setSize(500, 250);
 		frame.setVisible(true);
 	}
 }
