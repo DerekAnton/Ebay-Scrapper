@@ -8,6 +8,7 @@ public class Main
 		JFrame frame = new JFrame();
 		System.out.println();
 		//Me toe
+		//pls work ;___;7
 	}
 
 }
