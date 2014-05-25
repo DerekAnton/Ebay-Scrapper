@@ -51,9 +51,10 @@ public class Main
 		
 		// Frame Actions //
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(label, BorderLayout.CENTER);
-		frame.setJMenuBar(menuBar);
 		frame.add(searchButton);
+		frame.setJMenuBar(menuBar);
+		// ALL FRAME ADDS MUST BE DONE ABOVE THIS //
+		frame.getContentPane().add(label, BorderLayout.CENTER);		
 		frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
 		
 		// Menu Actions //
@@ -67,10 +68,10 @@ public class Main
 		menuBar.add(helpMenu);
 		
 		// Button Actions //
+		searchButton.addActionListener(actionListener);
 		searchButton.setSize(100, 25);
 		searchButton.setLocation(0, 50);
-		searchButton.addActionListener(actionListener);
-		
+			
 		// End Frame Work -> Pack and visible are final actions //
 		frame.pack();
 		frame.setSize(500, 250);
