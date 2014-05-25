@@ -19,9 +19,15 @@ public class Main
 {
 	// Textfields //
 	public static JTextField textfield = new JTextField("Enter your desired query...");
-			
+	// String Query //
+	public static String currentQuery = "";
+	// Check Condition for null click //
+	public static boolean singleClickText = true;
+				
 	public static void main(String[] args)
 	{
+
+		// For setting our apps position //
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		
 		//  Frame Variables //
@@ -51,14 +57,18 @@ public class Main
 		{
 			public void actionPerformed(ActionEvent actionEvent)
 		    {
-		        System.out.println("Your item was searched."); // this is where we will do searching logic. //
+		        currentQuery = textfield.getText(); // now we use this to craft our query search //
 		    }
 		};
 		textfield.addMouseListener(new MouseAdapter()
 		{
 			public void mouseClicked(MouseEvent e)
 	        {
-				textfield.setText("");
+				if(singleClickText)
+				{
+					textfield.setText("");
+					singleClickText = false;
+				}
 	        }
 	    });
 		
