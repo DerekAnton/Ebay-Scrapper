@@ -39,26 +39,22 @@ public class Main
 		
 		// Button Variables //
 		JButton searchButton = new JButton("Search");
-		frame.add(searchButton);
 		
-		frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
-		
-		// Button Actions //
-		// Action when the button is pressed //
+		// ActionListener //
 		ActionListener actionListener = new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent actionEvent)
-		    	{
-		        	System.out.println("Your item was searched.");
-		      	}
+		    {
+		        System.out.println("Your item was searched."); // this is where we will do searching logic. //
+		    }
 		};
-		searchButton.addActionListener(actionListener);
-		
 		
 		// Frame Actions //
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(label, BorderLayout.CENTER);
 		frame.setJMenuBar(menuBar);
+		frame.add(searchButton);
+		frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
 		
 		// Menu Actions //
 		fileMenu.add(fileItem1);
@@ -69,6 +65,11 @@ public class Main
 		menuBar.add(fileMenu);
 		menuBar.add(optionsMenu);
 		menuBar.add(helpMenu);
+		
+		// Button Actions //
+		searchButton.setSize(100, 25);
+		searchButton.setLocation(0, 50);
+		searchButton.addActionListener(actionListener);
 		
 		// End Frame Work -> Pack and visible are final actions //
 		frame.pack();
