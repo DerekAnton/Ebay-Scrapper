@@ -1,16 +1,21 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JButton;
 
 
 public class Main 
 {
+	
 	public static void main(String[] args)
 	{
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -18,6 +23,7 @@ public class Main
 		//  Frame Variables //
 		JFrame frame = new JFrame("Ebay Snooper");
 		JLabel label = new JLabel();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// MenuBar Variables //
 		JMenuBar menuBar = new JMenuBar();
@@ -32,9 +38,22 @@ public class Main
 		JMenuItem optionsItem1 = new JMenuItem("File options item");
 		JMenuItem helpItem1 = new JMenuItem("God can only help you now...");
 		
+		// Button Variables //
+		JButton searchButton = new JButton("Search");
+		frame.add(searchButton);
+		
 		frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
 		
-		
+		// Button Actions //
+		// Action when the button is pressed //
+		ActionListener actionListener = new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent actionEvent)
+		    	{
+		        	System.out.println("Your item was searched.");
+		      	}
+		};
+		searchButton.addActionListener(actionListener);
 		
 		
 		// Frame Actions //
