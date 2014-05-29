@@ -33,11 +33,15 @@ public class eBayHandler {
 		{
 			ex.printStackTrace();
 		}
+		// To test received HTML
 		System.out.println(content);
 	}
+	
+	// Method that builds a URL to request eBay HTML
 	public String buildURL()
 	{
-		queryString.replace(' ', '+');
+		queryString = queryString.replace(" ", "+");
+		
 		String URL = "http://www.ebay.com/sch/i.html?_sacat=0&_from=R40&_nkw=" + queryString + "&_sop=10";
 
 		return URL;
