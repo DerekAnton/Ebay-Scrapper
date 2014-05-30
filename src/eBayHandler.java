@@ -45,7 +45,7 @@ public class eBayHandler {
 			 *  Once i have a better handle at crafting CSS selector statements i can more accurately select what we need from the provided eBay page and then turn them into strings and present them to the user
 			 *  in the form of a notification or an email. 
 			 * 
-			 * */
+			 */
 			
 			Elements itemDescriptions = dom.select("#ResultSetItems .vip"); // elements calls the select function on the Document object which takes a CSS selector string as a parameter //
 			Elements itemDateTimes = dom.select("#ResultSetItems .tme");
