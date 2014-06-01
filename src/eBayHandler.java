@@ -28,14 +28,14 @@ public class eBayHandler {
 		URLConnection connection = null;
 		try 
 		{
-			builtUrl = buildURL(); // storing the built url for reference later on in the program //
+			//builtUrl = buildURL(); // REMOVED due to design change
 			
 			/*connection =  new URL(builtUrl).openConnection();
 			Scanner scanner = new Scanner(connection.getInputStream()); PULLED THIS FOR JSOUP IMPLEMENTATION
 			scanner.useDelimiter("\\Z");
 			content = scanner.next();
 			*/
-			Document dom = Jsoup.connect(builtUrl).get(); // A Document Object Module (DOM) object provided by JSoup //
+			Document dom = Jsoup.connect(queryString).get(); // A Document Object Module (DOM) object provided by JSoup //
 			
 			/* 
 			 *  CURRENTLY TESTING

@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 public class Main 
 {
 	// Textfields //
-	public static JTextField textfield = new JTextField("Enter your desired query...");
+	public static JTextField textfield = new JTextField("Enter the exact URL...");
 	// String Query //
 	public static String currentQuery = "";
 	// Check Condition for null click //
