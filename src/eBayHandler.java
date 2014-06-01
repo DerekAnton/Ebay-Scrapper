@@ -65,6 +65,16 @@ public class eBayHandler {
 	}
 	
 	// Method that builds a URL to request eBay HTML
+	
+	/*
+	 * 
+	 * Major design change. Client has specified they want to use a more in depth query for their search
+	 * this in depth search will be done on the Ebay site itself, and the user will have to provide our program with the crafted url 
+	 * The url will be very complex, we may look into making a UI around this later, but currently out of scope of project.
+	 * 
+	 * TL;DR -> removing any backend url building, requesting the user to provide us with the correct url to query.
+	 * 
+	 * */
 	public String buildURL()
 	{
 		queryString = queryString.replace(" ", "+");
